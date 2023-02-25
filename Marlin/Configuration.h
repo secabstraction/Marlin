@@ -2857,7 +2857,7 @@
 // This is RAMPS-compatible using a single 10-pin connector.
 // (For CR-10 owners who want to replace the Melzi Creality board but retain the display)
 //
-#define CR10_STOCKDISPLAY
+#define CR10_STOCKDISPLAY // EXP1 on SKR Pro board to EXP3 on stock display
 
 //
 // Ender-2 OEM display, a variant of the MKS_MINI_12864
