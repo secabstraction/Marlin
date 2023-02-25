@@ -2858,7 +2858,7 @@
 
   #if AXIS_IS_TMC_CONFIG(E0)
     #define E0_CURRENT        900
-    #define E0_MICROSTEPS     400   // MicroSwiss NG
+    #define E0_MICROSTEPS     16
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS      -1
     //#define E0_INTERPOLATE true
@@ -2867,7 +2867,7 @@
 
   #if AXIS_IS_TMC_CONFIG(E1)
     #define E1_CURRENT        900
-    #define E1_MICROSTEPS     E0_MICROSTEPS
+    #define E1_MICROSTEPS     16
     #define E1_RSENSE         0.11
     #define E1_CHAIN_POS      -1
     //#define E1_INTERPOLATE true
