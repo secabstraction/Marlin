@@ -58,14 +58,21 @@
 #define SERVO1_PIN                          PC9
 
 //
+// Z Probe must be this pin
+//
+#ifndef Z_MIN_PROBE_PIN
+  #define Z_MIN_PROBE_PIN                   PA2
+#endif
+
+//
 // Trinamic Stallguard pins
 //
-#define X_DIAG_PIN                          PB10  // X-
-#define Y_DIAG_PIN                          PE12  // Y-
-#define Z_DIAG_PIN                          PG8   // Z-
-#define E0_DIAG_PIN                         PE15  // E0
-#define E1_DIAG_PIN                         PE10  // E1
-#define E2_DIAG_PIN                         PG5   // E2
+//#define X_DIAG_PIN                          PB10  // X-
+//#define Y_DIAG_PIN                          PE12  // Y-
+//#define Z_DIAG_PIN                          PG8   // Z-
+//#define E0_DIAG_PIN                         PE15  // E0
+//#define E1_DIAG_PIN                         PE10  // E1
+//#define E2_DIAG_PIN                         PG5   // E2 
 
 //
 // Limit Switches
@@ -80,6 +87,9 @@
 #else
   #define X_MIN_PIN                         PB10  // X-
   #define X_MAX_PIN                         PE15  // E0
+  #if ENABLED(FILAMENT_RUNOUT_SENSOR)
+    #define FIL_RUNOUT_PIN                  PE15
+  #endif
 #endif
 
 #ifdef Y_STALL_SENSITIVITY
@@ -92,38 +102,28 @@
 #else
   #define Y_MIN_PIN                         PE12  // Y-
   #define Y_MAX_PIN                         PE10  // E1
+  #if ENABLED(FILAMENT_RUNOUT_SENSOR)
+    #define FIL_RUNOUT2_PIN                 PE10
+  #endif
 #endif
 
 #ifdef Z_STALL_SENSITIVITY
   #define Z_STOP_PIN                  Z_DIAG_PIN
   #if Z_HOME_TO_MIN
-    #define Z_MAX_PIN                       PG5   // E2
+    #define Z_MAX_PIN                        PG5   // E2
   #else
-    #define Z_MIN_PIN                       PG5   // E2
+    #define Z_MIN_PIN                        PG5   // E2
   #endif
 #else
-  #define Z_MIN_PIN                         PG8   // Z-
-  #define Z_MAX_PIN                         PG5   // E2
-#endif
-
-//
-// Z Probe must be this pin
-//
-#ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                   PA2
-#endif
-
-//
-// Filament Runout Sensor
-//
-#ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                    PE15
-#endif
-#ifndef FIL_RUNOUT2_PIN
-  #define FIL_RUNOUT2_PIN                   PE10
-#endif
-#ifndef FIL_RUNOUT3_PIN
-  #define FIL_RUNOUT3_PIN                   PG5
+  #ifndef Z_MIN_PIN
+    #define Z_MIN_PIN                        PG8   // Z-
+  #endif
+  #if ENABLED(FILAMENT_RUNOUT_SENSOR)
+    #ifndef POWER_LOSS_PIN
+      #define Z_MAX_PIN                      PG5   // E2
+      #define FIL_RUNOUT3_PIN                PG5
+    #endif
+  #endif
 #endif
 
 //
@@ -164,11 +164,13 @@
   #define E1_CS_PIN                         PG15
 #endif
 
-#define E2_STEP_PIN                         PD13
-#define E2_DIR_PIN                          PG9
-#define E2_ENABLE_PIN                       PF0
-#ifndef E2_CS_PIN
-  #define E2_CS_PIN                         PG12
+#ifndef Z2_STEP_PIN
+  #define E2_STEP_PIN                       PD13
+  #define E2_DIR_PIN                        PG9
+  #define E2_ENABLE_PIN                     PF0
+  #ifndef E2_CS_PIN
+    #define E2_CS_PIN                       PG12
+  #endif
 #endif
 
 //
@@ -220,8 +222,8 @@
   #define E1_SERIAL_TX_PIN                  PD1
   #define E1_SERIAL_RX_PIN      E1_SERIAL_TX_PIN
 
-  #define E2_SERIAL_TX_PIN                  PD6
-  #define E2_SERIAL_RX_PIN      E2_SERIAL_TX_PIN
+  #define Z2_SERIAL_TX_PIN                  PD6
+  #define Z2_SERIAL_RX_PIN      Z2_SERIAL_TX_PIN
 
   // Reduce baud rate to improve software serial reliability
   #define TMC_BAUD_RATE                    19200
@@ -244,7 +246,9 @@
 #if TEMP_SENSOR_2_IS_AD8495 || TEMP_SENSOR_2 == 20
   #define TEMP_2_PIN                        PF10
 #else
-  #define TEMP_2_PIN                        PF6   // T3 <-> E2
+  #ifndef PS_ON_PIN
+    #define TEMP_2_PIN                      PF6   // T3 <-> E2
+  #endif
 #endif
 #if TEMP_SENSOR_BED_IS_AD8495 || TEMP_SENSOR_BED == 20
   #define TEMP_BED_PIN                      PF7
