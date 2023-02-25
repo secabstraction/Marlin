@@ -21,52 +21,37 @@
  */
 #pragma once
 
-#if HOTENDS > 2 || E_STEPPERS > 2
-  #error "Creality RAMPS supports up to 2 hotends / E steppers."
+#if HOTENDS > 1 || E_STEPPERS > 1
+  #error "Creality RAMPS supports up to 1 hotends / E steppers."
 #endif
 
-#define BOARD_INFO_NAME "Creality3D RAMPS"
+#define BOARD_INFO_NAME "Creality v2.2.1 (RAMPS 1.3)"
 
-//
-// Heaters / Fans
-//
-#define MOSFET_B_PIN                           7  // For HEATER_1_PIN ("EEF" or "EEB")
-#define FAN_PIN                                9
+#define SD_DETECT_PIN                       49
 
-#define FIL_RUNOUT_PIN                         2
-#if NUM_RUNOUT_SENSORS >= 2
-  #define FIL_RUNOUT2_PIN                     15  // Creality CR-X can use dual runout sensors
-#endif
+// move Z_MIN_PIN to Y_MAX_PIN
+// this enables use of Serial1 via AUX-1 header
+// tested with BTT TFT35 using SERIAL_PORT_2 1
+#define Z_MAX_PIN                           -1
+#define Y_MAX_PIN                           -1
+#define Z_MIN_PIN                           15
 
-#ifndef SD_DETECT_PIN
-  #if SD_CONNECTION_IS(ONBOARD)
-    //#define HAS_ONBOARD_SD_DETECT               // If the SD_DETECT_PIN is wired up
-  #endif
-  #if ENABLED(HAS_ONBOARD_SD_DETECT) || !SD_CONNECTION_IS(ONBOARD)
-    #define SD_DETECT_PIN                     49
-  #endif
-#endif
+/**
+ * WARNING!
+ * You MUST reduce Vref of both Z stepper drivers
+ * to avoid overheating the 42-34 stepper motors
+ * Vref for TMC2208: https://www.youmaketech.com/how-to-adjust-stepper-motor-currents-on-ender-3-pro-v2/
+ */
 
-#ifndef PS_ON_PIN
-  #define PS_ON_PIN                           40  // Used by CR2020 Industrial series
-#endif
+// use E1 stepper as Z2 to enable G34
+#define E1_STEP_PIN                         -1
+#define E1_DIR_PIN                          -1
+#define E1_ENABLE_PIN                       -1
+#define E1_CS_PIN                           -1
 
-#if ENABLED(CASE_LIGHT_ENABLE) && !defined(CASE_LIGHT_PIN)
-  #define CASE_LIGHT_PIN                      65
-#endif
+#define Z2_STEP_PIN                         36
+#define Z2_DIR_PIN                          34
+#define Z2_ENABLE_PIN                       30
+#define Z2_CS_PIN                           44
 
 #include "pins_RAMPS.h"
-
-#ifndef BEEPER_PIN
-  #define BEEPER_PIN                          37  // Always define beeper pin so Play Tone works with ExtUI
-#endif
-
-#define EXP1_PIN                              65  // A11 - Used by CR2020 Industrial series for case
-#define EXP2_PIN                              66  // A12
-#define EXP3_PIN                              11  // SERVO0_PIN
-#define EXP4_PIN                              12  // PS_ON_PIN
-
-#define SUICIDE_PIN                           12  // Used by CR2020 Industrial series
-#ifndef SUICIDE_PIN_STATE
-  #define SUICIDE_PIN_STATE                 HIGH
-#endif
