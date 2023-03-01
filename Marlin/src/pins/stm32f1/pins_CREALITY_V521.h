@@ -62,15 +62,19 @@
 //
 // Servos
 //
-#define SERVO0_PIN                          PD13  // BLTouch OUT
+#ifdef BLTOUCH
+  #define SERVO0_PIN                        PD13  // BLTouch OUT
+  #define Z_STOP_PIN                        PD12  // Z
+#else
+  #define Z_STOP_PIN                         PE1
+#endif
 
 //
 // Limit Switches
 //
 #define X_STOP_PIN                          PD10  // X
-#define X2_STOP_PIN                         PE15  // X2
+#define X_MAX_PIN                           PE15  // X2
 #define Y_STOP_PIN                          PE0   // Y
-#define Z_STOP_PIN                          PE1   // Z
 #define Z2_STOP_PIN                         PE2   // Z2
 
 #ifndef Z_MIN_PROBE_PIN
