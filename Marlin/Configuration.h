@@ -99,7 +99,18 @@
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
 #define SERIAL_PORT 1
-#define SERIAL_PORT_2 3 // BTT TFT35 v3 on original display header
+#define SERIAL_PORT_2 3
+/** BTT TFT35 v3 on original display header
+ * 
+ *                  PB11 (USART2_RX)
+ *                  |
+ *        ------------------
+ *    5V | 1  2  3  4  5  6 | GND
+ *        ------------------
+ *               |
+ *               PB10 (USART2_TX)
+ *       P1
+ */
 
 /**
  * Serial Port Baud Rate
