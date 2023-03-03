@@ -676,15 +676,21 @@
     #define DEFAULT_Kp_LIST {  22.20,  22.20 }
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
-  #else // Creality CR-10S S5 MicroSwissNG w/STEEL
-    #define  DEFAULT_Kp 28.09
-    #define  DEFAULT_Ki 2.41
-    #define  DEFAULT_Kd 81.68
+  #else
+    // Creality CR-10S S5 - MicroSwissNG w/M2 @ 24v
+    #define DEFAULT_Kp 27.630
+    #define DEFAULT_Ki 3.056
+    #define DEFAULT_Kd 62.444
+    
+    // Creality CR-10S S5 - MicroSwissNG w/M2 @ 12v
+    //#define  DEFAULT_Kp 28.09
+    //#define  DEFAULT_Ki 2.41
+    //#define  DEFAULT_Kd 81.68
 
-    // Creality CR-10S S5 Stock MK8 w/BRASS
-    //#define  DEFAULT_Kp 20.91
-    //#define  DEFAULT_Ki 1.59
-    //#define  DEFAULT_Kd 68.97
+    // Creality CR-10S S5 - original brass MK8 @ 12v
+    //#define DEFAULT_Kp 20.91
+    //#define DEFAULT_Ki 1.59
+    //#define DEFAULT_Kd 68.97
   #endif
 #endif
 
