@@ -86,7 +86,7 @@
 // @section machine
 
 // Disable compiler warning
-//#define DIAG_JUMPERS_REMOVED
+#define DIAG_JUMPERS_REMOVED
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
@@ -108,7 +108,7 @@
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
 #define SERIAL_PORT_2 1 // TFT connector
-#define SERIAL_PORT_3 6 // WiFi header
+//#define SERIAL_PORT_3 6 // WiFi header
 
 /**
  * Serial Port Baud Rate
