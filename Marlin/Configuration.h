@@ -108,7 +108,7 @@
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
 #define SERIAL_PORT_2 1 // TFT connector
-//#define SERIAL_PORT_3 6 // WiFi header
+#define SERIAL_PORT_3 6 // WiFi header
 
 /**
  * Serial Port Baud Rate
@@ -678,9 +678,9 @@
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
     // Creality CR-10S S5 - MicroSwissNG w/M2 @ 24v
-    #define DEFAULT_Kp 27.630
-    #define DEFAULT_Ki 3.056
-    #define DEFAULT_Kd 62.444
+    #define DEFAULT_Kp 25.695
+    #define DEFAULT_Ki 2.655
+    #define DEFAULT_Kd 62.185
     
     // Creality CR-10S S5 - MicroSwissNG w/M2 @ 12v
     //#define  DEFAULT_Kp 28.09
@@ -2492,7 +2492,7 @@
  *
  * Use CRC checks and retries on the SD communication.
  */
-//#define SD_CHECK_AND_RETRY
+#define SD_CHECK_AND_RETRY
 
 /**
  * LCD Menu Items
@@ -2756,7 +2756,7 @@
 // RepRapDiscount FULL GRAPHIC Smart Controller
 // https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
-//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
 //
 // K.3D Full Graphic Smart Controller
@@ -2863,7 +2863,7 @@
 // This is RAMPS-compatible using a single 10-pin connector.
 // (For CR-10 owners who want to replace the Melzi Creality board but retain the display)
 //
-#define CR10_STOCKDISPLAY // EXP1 on SKR Pro board to EXP3 on stock display
+//#define CR10_STOCKDISPLAY // EXP1 on SKR Pro board to EXP3 on stock display
 
 //
 // Ender-2 OEM display, a variant of the MKS_MINI_12864
