@@ -668,9 +668,10 @@
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else 
     // Stock CR-10S V2 Hotend fan 100%
-    #define DEFAULT_Kp 19.3397
-    #define DEFAULT_Ki 1.4308
-    #define DEFAULT_Kd 65.3511
+    //#define DEFAULT_Kp 19.3397
+    //#define DEFAULT_Ki 1.4308
+    //#define DEFAULT_Kd 65.3511
+      
   #endif
 #endif
 
@@ -3220,7 +3221,7 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-//#define FAN_SOFT_PWM
+#define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
