@@ -135,7 +135,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "JohnDoe"
+#define CUSTOM_MACHINE_NAME "Mender"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -671,7 +671,11 @@
     //#define DEFAULT_Kp 19.3397
     //#define DEFAULT_Ki 1.4308
     //#define DEFAULT_Kd 65.3511
-      
+
+    // MicroSwissNG
+    #define DEFAULT_Kp 18.7158
+    #define DEFAULT_Ki 1.4552
+    #define DEFAULT_Kd 60.1783
   #endif
 #endif
 
@@ -1170,9 +1174,9 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 } // Creality w MicroSwissNG
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 } // Creality with MicroSwissNG extruder
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415 } // Creality with Bondtech extruder
-#define DEFAULT_AXIS_STEPS_PER_UNIT     { 80, 80, 400, 140 } // Stock Creality CR10S PRO V2
+//#define DEFAULT_AXIS_STEPS_PER_UNIT     { 80, 80, 400, 140 } // Stock Creality CR10S PRO V2
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1487,7 +1491,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 47, 0, -2.1 }
+#define NOZZLE_TO_PROBE_OFFSET { -43, 11, -2.9 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
