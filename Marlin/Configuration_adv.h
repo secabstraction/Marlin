@@ -1735,7 +1735,7 @@
    *
    * :[ 'LCD', 'ONBOARD', 'CUSTOM_CABLE' ]
    */
-  #define SDCARD_CONNECTION ONBOARD
+  //#define SDCARD_CONNECTION ONBOARD
 
   // Enable if SD detect is rendered useless (e.g., by using an SD extender)
   //#define NO_SD_DETECT
@@ -2717,7 +2717,7 @@
   #define INTERPOLATE      true
 
   #if AXIS_IS_TMC_CONFIG(X)
-    #define X_CURRENT        870        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT        715        // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME   X_CURRENT  // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS     16         // 0..256
     #define X_RSENSE         0.11       // Multiplied x1000 for TMC26X
@@ -2737,7 +2737,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Y)
-    #define Y_CURRENT        870
+    #define Y_CURRENT        715
     #define Y_CURRENT_HOME   Y_CURRENT
     #define Y_MICROSTEPS     16
     #define Y_RSENSE         0.11
@@ -2757,7 +2757,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Z)
-    #define Z_CURRENT        800
+    #define Z_CURRENT        615
     #define Z_CURRENT_HOME   Z_CURRENT
     #define Z_MICROSTEPS     16
     #define Z_RSENSE         0.11
@@ -2767,7 +2767,7 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Z2)
-    #define Z2_CURRENT        800
+    #define Z2_CURRENT        615
     #define Z2_CURRENT_HOME   Z2_CURRENT
     #define Z2_MICROSTEPS     16
     #define Z2_RSENSE         0.11
@@ -2997,7 +2997,7 @@
   //#define  V_SLAVE_ADDRESS 0
   //#define  W_SLAVE_ADDRESS 0
   #define E0_SLAVE_ADDRESS 0
-  #define E1_SLAVE_ADDRESS 0
+  //#define E1_SLAVE_ADDRESS 0
   //#define E2_SLAVE_ADDRESS 0
   //#define E3_SLAVE_ADDRESS 0
   //#define E4_SLAVE_ADDRESS 0
@@ -3086,7 +3086,7 @@
    * M912 - Clear stepper driver overtemperature pre-warn condition flag.
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
-  //#define MONITOR_DRIVER_STATUS
+  #define MONITOR_DRIVER_STATUS
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP_DOWN     50  // [mA]
@@ -3194,7 +3194,7 @@
    * Beta feature!
    * Create a 50/50 square wave step pulse optimal for stepper drivers.
    */
-  //#define SQUARE_WAVE_STEPPING
+  #define SQUARE_WAVE_STEPPING
 
   /**
    * Enable M122 debugging command for TMC stepper drivers.

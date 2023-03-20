@@ -37,13 +37,15 @@
 // EEPROM
 //
 #if NO_EEPROM_SELECTED
-  #define I2C_EEPROM                            // EEPROM on I2C-0
-  #define E2END MNV_SKRV1_4_256K_END
+  #define I2C_EEPROM                      // EEPROM on I2C-0  
   //#define SDCARD_EEPROM_EMULATION
   //#undef NO_EEPROM_SELECTED
 #endif
 
 #if ENABLED(I2C_EEPROM)
+  #define MNV_SKRV1_4_256K_END 0x7FFF     // 32Kb
+  //#define MNV_SKRV1_4_512K_END 0xFFFF   // 64Kb
+  #define E2END MNV_SKRV1_4_256K_END
   #define MARLIN_EEPROM_SIZE              0x8000  // 32K
 #elif ENABLED(SDCARD_EEPROM_EMULATION)
   #define MARLIN_EEPROM_SIZE               0x800  // 2K
@@ -186,6 +188,10 @@
 #ifndef Z2_CS_PIN
   #define Z2_CS_PIN                        P1_01
 #endif
+
+#define E1_STEP_PIN                           -1
+#define E1_DIR_PIN                            -1
+#define E1_ENABLE_PIN                         -1
 
 #define TEMP_1_PIN                      P0_23_A0  // A0 (T0) - (67) - TEMP_1_PIN
 #define TEMP_BED_PIN                    P0_25_A2  // A2 (T2) - (69) - TEMP_BED_PIN
