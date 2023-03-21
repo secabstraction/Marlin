@@ -1658,8 +1658,8 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-//#define INVERT_E0_DIR true // Creality with Bondtech extruder
-#define INVERT_E0_DIR false // Stock Creality
+#define INVERT_E0_DIR true // creality with MicroSwissNG
+//#define INVERT_E0_DIR false // Stock Creality
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -1701,7 +1701,7 @@
 
 // The size of the printable area
 #define X_BED_SIZE 305
-#define Y_BED_SIZE 315
+#define Y_BED_SIZE 305
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
