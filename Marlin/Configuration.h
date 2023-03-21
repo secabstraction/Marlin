@@ -1488,7 +1488,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -41, -11, -2.5 } // MicroSwiss NG
+#define NOZZLE_TO_PROBE_OFFSET { -41, -11, -2.7 } // MicroSwiss NG
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
