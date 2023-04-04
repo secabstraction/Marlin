@@ -54,8 +54,8 @@
 #define Z2_DIAG_PIN                         PG11  // Z2-STOP
 #define E0_DIAG_PIN                         PG12  // E0DET
 #define E1_DIAG_PIN                         PG13  // E1DET
-#define E2_DIAG_PIN                         PG14  // E2DET
-#define E3_DIAG_PIN                         PG15  // E3DET
+#define Z3_DIAG_PIN                         PG14  // E2DET
+#define Z4_DIAG_PIN                         PG15  // E3DET
 
 //
 // Z Probe (when not Z_MIN_PIN)
@@ -209,19 +209,19 @@
   #define E1_CS_PIN                         PE4
 #endif
 
-#define E2_STEP_PIN                         PE2   // MOTOR 6
-#define E2_DIR_PIN                          PE3
-#define E2_ENABLE_PIN                       PD4
-#ifndef E2_CS_PIN
+#define Z3_STEP_PIN                         PE2   // MOTOR 6
+#define Z3_DIR_PIN                          PE3
+#define Z3_ENABLE_PIN                       PD4
+#ifndef Z3_CS_PIN
 
-  #define E2_CS_PIN                         PE1
+  #define Z3_CS_PIN                         PE1
 #endif
 
-#define E3_STEP_PIN                         PE6   // MOTOR 7
-#define E3_DIR_PIN                          PA14
-#define E3_ENABLE_PIN                       PE0
-#ifndef E3_CS_PIN
-  #define E3_CS_PIN                         PD3
+#define Z4_STEP_PIN                         PE6   // MOTOR 7
+#define Z4_DIR_PIN                          PA14
+#define Z4_ENABLE_PIN                       PE0
+#ifndef Z4_CS_PIN
+  #define Z4_CS_PIN                         PD3
 #endif
 
 //
@@ -311,11 +311,11 @@
   #define E1_SERIAL_TX_PIN                  PE4
   #define E1_SERIAL_RX_PIN      E1_SERIAL_TX_PIN
 
-  #define E2_SERIAL_TX_PIN                  PE1
-  #define E2_SERIAL_RX_PIN      E2_SERIAL_TX_PIN
+  #define Z3_SERIAL_TX_PIN                  PE1
+  #define Z3_SERIAL_RX_PIN      Z3_SERIAL_TX_PIN
 
-  #define E3_SERIAL_TX_PIN                  PD3
-  #define E3_SERIAL_RX_PIN      E3_SERIAL_TX_PIN
+  #define Z4_SERIAL_TX_PIN                  PD3
+  #define Z4_SERIAL_RX_PIN      Z4_SERIAL_TX_PIN
 
   // Reduce baud rate to improve software serial reliability
   #define TMC_BAUD_RATE                    19200
