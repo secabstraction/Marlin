@@ -26,8 +26,13 @@
 //
 // Temperature Sensors
 //
-#if TEMP_SENSOR_0 == 20
-  #define TEMP_0_PIN                        PF8   // PT100 Connector
+#if TEMP_SENSOR_0 == -5
+  #define TEMP_0_CS_PIN                     PD3   // Max31865 CS
+  #define TEMP_0_SCK_PIN                    PA5
+  #define TEMP_0_MISO_PIN                   PA6
+  #define TEMP_0_MOSI_PIN                   PA7
+  #define SOFTWARE_SPI                            // Max31865 and LCD SD share a set of SPIs, Set SD to softwareSPI for Max31865
+  #define FORCE_SOFT_SPI
 #else
   #define TEMP_0_PIN                        PF4   // TH0
 #endif

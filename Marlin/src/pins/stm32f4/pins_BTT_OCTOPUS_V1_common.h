@@ -48,14 +48,16 @@
 //
 // Trinamic Stallguard pins
 //
-#define X_DIAG_PIN                          PG6   // X-STOP
-#define Y_DIAG_PIN                          PG9   // Y-STOP
-#define Z_DIAG_PIN                          PG10  // Z-STOP
-#define Z2_DIAG_PIN                         PG11  // Z2-STOP
-#define E0_DIAG_PIN                         PG12  // E0DET
-#define E1_DIAG_PIN                         PG13  // E1DET
-#define Z3_DIAG_PIN                         PG14  // E2DET
-#define Z4_DIAG_PIN                         PG15  // E3DET
+#if ENABLED(SENSORLESS_HOMING)
+  #define X_DIAG_PIN                          PG6   // X-STOP
+  #define Y_DIAG_PIN                          PG9   // Y-STOP
+  #define Z_DIAG_PIN                          PG10  // Z-STOP
+  #define Z2_DIAG_PIN                         PG11  // Z2-STOP
+  #define E0_DIAG_PIN                         PG12  // E0DET
+  #define E1_DIAG_PIN                         PG13  // E1DET
+  #define E2_DIAG_PIN                         PG14  // E2DET
+  #define E3_DIAG_PIN                         PG15  // E3DET
+#endif
 
 //
 // Z Probe (when not Z_MIN_PIN)
@@ -68,7 +70,7 @@
 // Check for additional used endstop pins
 //
 #if HAS_EXTRA_ENDSTOPS
-  #define _ENDSTOP_IS_ANY(ES) X2_USE_ENDSTOP == ES || Y2_USE_ENDSTOP == ES || Z2_USE_ENDSTOP == ES || Z3_USE_ENDSTOP == ES || Z4_USE_ENDSTOP == ES
+  #define _ENDSTOP_IS_ANY(ES) X2_USE_ENDSTOP == ES || Y2_USE_ENDSTOP == ES || Z2_USE_ENDSTOP == ES || E2_USE_ENDSTOP == ES || E3_USE_ENDSTOP == ES
   #if _ENDSTOP_IS_ANY(_XMIN_) || _ENDSTOP_IS_ANY(_XMAX_)
     #define NEEDS_X_MINMAX 1
   #endif
@@ -145,10 +147,12 @@
 //
 // Filament Runout Sensor
 //
-#define FIL_RUNOUT_PIN                      PG12  // E0DET
-#define FIL_RUNOUT2_PIN                     PG13  // E1DET
-#define FIL_RUNOUT3_PIN                     PG14  // E2DET
-#define FIL_RUNOUT4_PIN                     PG15  // E3DET
+#if ENABLED(FILAMENT_RUNOUT_SENSOR)
+  #define FIL_RUNOUT_PIN                      PG12  // E0DET
+  #define FIL_RUNOUT2_PIN                     PG13  // E1DET
+  #define FIL_RUNOUT3_PIN                     PG14  // E2DET
+  #define FIL_RUNOUT4_PIN                     PG15  // E3DET
+#endif
 
 //
 // Power Supply Control
@@ -209,19 +213,18 @@
   #define E1_CS_PIN                         PE4
 #endif
 
-#define Z3_STEP_PIN                         PE2   // MOTOR 6
-#define Z3_DIR_PIN                          PE3
-#define Z3_ENABLE_PIN                       PD4
-#ifndef Z3_CS_PIN
-
-  #define Z3_CS_PIN                         PE1
+#define E2_STEP_PIN                         PE2   // MOTOR 6
+#define E2_DIR_PIN                          PE3
+#define E2_ENABLE_PIN                       PD4
+#ifndef E2_CS_PIN
+  #define E2_CS_PIN                         PE1
 #endif
 
-#define Z4_STEP_PIN                         PE6   // MOTOR 7
-#define Z4_DIR_PIN                          PA14
-#define Z4_ENABLE_PIN                       PE0
-#ifndef Z4_CS_PIN
-  #define Z4_CS_PIN                         PD3
+#ifndef TEMP_0_CS_PIN
+  #define E3_STEP_PIN                       PE6   // MOTOR 7
+  #define E3_DIR_PIN                        PA14
+  #define E3_ENABLE_PIN                     PE0
+  #define E3_CS_PIN                         PD3
 #endif
 
 //
@@ -311,11 +314,13 @@
   #define E1_SERIAL_TX_PIN                  PE4
   #define E1_SERIAL_RX_PIN      E1_SERIAL_TX_PIN
 
-  #define Z3_SERIAL_TX_PIN                  PE1
-  #define Z3_SERIAL_RX_PIN      Z3_SERIAL_TX_PIN
+  #define E2_SERIAL_TX_PIN                  PE1
+  #define E2_SERIAL_RX_PIN      E2_SERIAL_TX_PIN
 
-  #define Z4_SERIAL_TX_PIN                  PD3
-  #define Z4_SERIAL_RX_PIN      Z4_SERIAL_TX_PIN
+  #ifndef TEMP_0_CS_PIN
+    #define E3_SERIAL_TX_PIN                PD3
+    #define E3_SERIAL_RX_PIN    E3_SERIAL_TX_PIN
+  #endif
 
   // Reduce baud rate to improve software serial reliability
   #define TMC_BAUD_RATE                    19200

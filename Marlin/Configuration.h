@@ -90,7 +90,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_BTT_OCTOPUS_PRO_V1_0
+  #define MOTHERBOARD BOARD_BTT_OCTOPUS_V1_1
 #endif
 
 /**
@@ -138,7 +138,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Wall-E"
+#define CUSTOM_MACHINE_NAME "Eva"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -167,8 +167,8 @@
 //#define X2_DRIVER_TYPE  A4988
 //#define Y2_DRIVER_TYPE  A4988
 #define Z2_DRIVER_TYPE  TMC2209
-#define Z3_DRIVER_TYPE  TMC2209
-#define Z4_DRIVER_TYPE  TMC2209
+//#define Z3_DRIVER_TYPE  A4988
+//#define Z4_DRIVER_TYPE  A4988
 //#define I_DRIVER_TYPE   A4988
 //#define J_DRIVER_TYPE   A4988
 //#define K_DRIVER_TYPE   A4988
@@ -540,7 +540,7 @@
  *
  */
 #define TEMP_SENSOR_0 -5
-#define TEMP_SENSOR_1 -5
+#define TEMP_SENSOR_1 1047
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
 #define TEMP_SENSOR_4 0
@@ -1705,16 +1705,16 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 500
-#define Y_BED_SIZE 500
+#define X_BED_SIZE 360
+#define Y_BED_SIZE 360
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
-#define Y_MIN_POS -70
+#define Y_MIN_POS -50
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 500
+#define Z_MAX_POS 410
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
